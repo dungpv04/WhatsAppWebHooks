@@ -7,13 +7,10 @@
 
 import express from "express";
 import axios from "axios";
-import dotenv from 'dotenv';
-import * as path from 'path'
 const app = express();
 app.use(express.json());
 
-dotenv.config({path: `${path.join(process.cwd(), 'config.env')}`})
-const { WEBHOOK_VERIFY_TOKEN, GRAPH_API_TOKEN, PORT } = process.env
+const { WEBHOOK_VERIFY_TOKEN, GRAPH_API_TOKEN, PORT } = process.env;
 
 app.post("/webhook", async (req, res) => {
   // log incoming messages
